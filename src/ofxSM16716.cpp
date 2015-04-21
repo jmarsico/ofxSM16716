@@ -48,7 +48,7 @@ ofxSM16716::~ofxSM16716() {
 
 // set a pixel in the RGB array in the strip layout using a single 32-bit int for the color
 // masks with 00FFFFFF since color is 24-bit value, thus this sets uppermost byte to zeros
-void ofxSM16716::set_pixel(uint8_t index, uint32_t color) {
+void ofxSM16716::set_pixel(int index, uint32_t color) {
   pixels[index] = color & 0x00FFFFFF;
 }
 
@@ -56,7 +56,7 @@ void ofxSM16716::set_pixel(uint8_t index, uint32_t color) {
 // creates a 32-bit uint from RGB values, then calls set_pixel
 // bytes are red, green, blue from left to right
 // note: some implementations have this backwards
-void ofxSM16716::set_pixel_rgb(uint8_t index, uint32_t r, uint32_t g, uint32_t b) {
+void ofxSM16716::set_pixel_rgb(int index, uint32_t r, uint32_t g, uint32_t b) {
   
   if(r > 255) r = 255;
   if(g > 255) g = 255;
@@ -74,7 +74,7 @@ void ofxSM16716::toggle_clock() {
 }
 
 // write a single pixel of given index in strip layout from RGB array to a given strip
-void ofxSM16716::write_pixel(uint8_t i) {
+void ofxSM16716::write_pixel(int i) {
   // mask has a 1 in bit 25, zero everywhere else
   const uint32_t MASK = ((uint32_t)(1) << 24);
   // puts the bit 1 in front of the RGB value

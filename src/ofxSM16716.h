@@ -39,19 +39,19 @@ class ofxSM16716 {
     
     // this set of methods sets a pixel in the strip layout
     // set a pixel in the RGB array using a single 32-bit uint for the color; does not write to grid
-    void set_pixel(uint8_t index, uint32_t color);
+    void set_pixel(int index, uint32_t color);
 
     bool init(int num_pix);
     
     // set a pixel in the RBG array using separate uints for R, G, and B; does not write to grid
-    void set_pixel_rgb(uint8_t index, uint32_t r, uint32_t g, uint32_t b);
+    void set_pixel_rgb(int index, uint32_t r, uint32_t g, uint32_t b);
    
     // this set of methods writes pixels from the pixel array to the LED strips
     // toggle clock pin high then low; "pushes" each bit one bit down the strip
     void toggle_clock();
     
     // write a single pixel of given index in strip layout from RGB array to a given strip
-    void write_pixel(uint8_t i);
+    void write_pixel(int i);
     
     // // write pixels of given index in strip layout from RGB array to all strips
     // // this has (theoretical) advantage that a single toggle_clock() pushes data down all strips at once
