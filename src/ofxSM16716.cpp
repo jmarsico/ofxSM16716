@@ -121,7 +121,7 @@ void ofxSM16716::write_pixel(int i) {
 void ofxSM16716::write_blank_pixel() {
   // write a string of 25 zeros to all strips
   // again, as above, we are writing 25 bits, since there is one bit between each set of 24 RGB bits
-  int j = 25;
+  int j = 200;
   while (j--) {
     
     digitalWrite(DATA_PIN, 0);
